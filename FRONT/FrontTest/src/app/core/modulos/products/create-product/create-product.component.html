@@ -1,0 +1,80 @@
+<div class="container mt-4">
+  <div class="card">
+    <div class="card-body">
+      <div class="container mt-4">
+        <h2>Nuevo Producto</h2>
+        <form [formGroup]="productoForm" (ngSubmit)="guardarProducto()">
+          <div class="mb-3">
+            <label for="nombre" class="form-label">Nombre</label>
+            <input
+              type="text"
+              class="form-control"
+              id="nombre"
+              formControlName="nombre"
+              [ngClass]="{
+                'is-invalid':
+                  productoForm.get('nombre')?.invalid &&
+                  productoForm.get('nombre')?.touched
+              }"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Descripción</label>
+            <input
+              class="form-control"
+              id="descripcion"
+              formControlName="descripcion"
+              [ngClass]="{
+                'is-invalid':
+                  productoForm.get('descripcion')?.invalid &&
+                  productoForm.get('descripcion')?.touched
+              }"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="descripcion" class="form-label">Categoría</label>
+            <input
+              class="form-control"
+              id="descripcion"
+              formControlName="categoria"
+              [ngClass]="{
+                'is-invalid':
+                  productoForm.get('categoria')?.invalid &&
+                  productoForm.get('categoria')?.touched
+              }"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="imagen" class="form-label">Imagen</label>
+            <input
+              class="form-control"
+              id="imagen"
+              formControlName="imagenURL"
+              [ngClass]="{
+                'is-invalid':
+                  productoForm.get('imagenURL')?.invalid &&
+                  productoForm.get('imagenURL')?.touched
+              }"
+            />
+          </div>
+          <div class="d-flex justify-content-between">
+            <button
+              type="button"
+              (click)="regresar()"
+              class="btn btn-secondary mb-0"
+            >
+              Volver
+            </button>
+            <button
+              type="submit"
+              [disabled]="!productoForm.valid"
+              class="btn btn-primary mb-0"
+            >
+              Guardar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
